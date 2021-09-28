@@ -98,7 +98,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #4c8aff;
+		background: #003599;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -3005,7 +3005,7 @@ input, select, textarea {
 
 		.spotlights > section > .image {
 			background-position: center center;
-			background-size: none;
+			background-size: cover;
 			border-radius: 0;
 			display: block;
 			position: relative;
@@ -3064,7 +3064,7 @@ input, select, textarea {
 			}
 
 		.spotlights > section:nth-child(2) {
-			background-color: rgba(0, 0, 0, 0.05);
+			background-color: rgba(0, 0, 0, 0.00);
 		}
 
 		.spotlights > section:nth-child(3) {
@@ -3236,31 +3236,31 @@ input, select, textarea {
 			}
 
 		.wrapper.alt {
-			background-color: #327aff;
+			background-color: #003599;
 		}
 
 		.wrapper.style1 {
-			background-color: #4c8aff;
+			background-color: #003599;
 		}
 
 		.wrapper.style1-alt {
-			background-color: #327aff;
+			background-color: #003599;
 		}
 
 		.wrapper.style2 {
-			background-color: #327aff;
+			background-color: #003599;
 		}
 
 		.wrapper.style2-alt {
-			background-color: #327aff;
+			background-color: #003599;
 		}
 
 		.wrapper.style3 {
-			background-color: #669bff;
+			background-color: #003599;
 		}
 
 		.wrapper.style3-alt {
-			background-color: #669bff;
+			background-color: #003599;
 		}
 
 		.wrapper.style4 {
