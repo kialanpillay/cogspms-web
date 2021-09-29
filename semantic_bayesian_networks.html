@@ -1,63 +1,157 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>COGSPMS | Semantic Bayesian Networks</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>COGSPMS | Semantic Bayesian Networks</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="title">COGSPMS</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="semantic_bayesian_networks.html" class="active"
+              >Semantic Bayesian Networks</a
+            >
+          </li>
+          <li>
+            <a href="graph_neural_networks.html">Graph Neural Networks</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-		<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="title">COGSPMS</a>
-				<nav>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="semantic_bayesian_networks.html" class="active">Semantic Bayesian Networks</a></li>
-						<li><a href="graph_neural_networks.html">Graph Neural Networks</a></li>
-					</ul>
-				</nav>
-			</header>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <section id="main" class="wrapper">
+        <div class="inner">
+          <h1 class="major">Semantic Bayesian Networks</h1>
+          <h2>Background & Context</h2>
+          <p>
+            Portfolio management is a complex decision-making process that aims
+            to maximise return through the proportional allocation of investable
+            capital into identified financial securities. The initial share
+            evaluation phase involves identifying securities with suitable
+            characteristics for inclusion in a portfolio. Portfolio selection is
+            the successive phase of portfolio management and determines the
+            optimal allocation of the set of identified shares in a portfolio.
+            The stock market is a dynamic, non-linear and chaotic system. This
+            requires investment professionals to assess and evaluate multiple
+            factors, including contradictory information when deciding whether a
+            share is suitable for inclusion in an investment portfolio.
+            Intelligent systems incorporate Artificial Intelligence (AI)
+            techniques to automate tasks and support human decision-making.
+          </p>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+          <p>
+            The <em>INVEST</em> system, proposed by Drake, is one such
+            intelligence system that incorporates ontologies and Bayesian
+            networks to support decision-making for share evaluation on the
+            Johannesburg Stock Exchange (JSE). Ontologies are used to formally
+            encode unstructured expert information into a representative,
+            machine-understandable form, whilst Bayesian networks (BNs) are
+            useful in the financial domain as it represents uncertain, ambiguous
+            or incomplete knowledge.
+          </p>
+          <p>
+            In this research, we will empirically evaluate the
+            <em>INVEST</em> system with varying conditions and test several
+            system extensions. Firstly, we will evaluate the base
+            <em>INVEST</em> system as designed by Drake. Secondly, we will
+            conduct an ablation study to assess the relative importance of each
+            component in the overall framework. Thirdly, we will extend the
+            system to include systematic risk within the BN topology. Fourthly,
+            we will test the stability and robustness of the
+            <em>INVEST</em> system through a noise simulation component.
+            Finally, we will integrate a deep learning predictive component into
+            the <em>INVEST</em> system.
+          </p>
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Semantic Bayesian Networks</h1>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p> 
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; University of Cape Town. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+          <h2>System Design</h2>
+          <p>
+            <span class="image left"
+              ><img src="images/package_diagram.png" alt="" /></span
+            >The system is composed of six submodules within the <em>INVEST</em>
+            module. The package diagram on the left depicts the dependencies
+            between modules.
+			<ul>
+				<li><em>INVEST: </em> This module contains a <em>Store</em> class, which represents the central point of the system. Responsibilities include invoking the functionality of the 6 submodules and running different experiments dependent on user input. 
+				<li><em>Preprocessing: </em>This submodule contains data loading and preprocessing utilities. Furthermore, this component has been extended to include a noise simulation component to facilitate system stress tests.  
+					
+				<li><em>Calculator: </em> This submodule performs the financial calculations of the system for each company, using financial ratios computation and thresholding logic. Financial ratios produce a numerical output, which the threshold component subsequently converts to discrete states required as input for the BNs. </li>
+				<li><em>Networks: </em> This submodule contains the implementation of three decision networks used to reach an investment decision: Value Evaluation, Quality Evaluation, and Investment Recommendation. These BNs conduct inference using the evidence returned by the thresholding component. </li>
+				<li><em>Evaluation: </em> The <em>INVEST</em> system is evaluated through back-testing using historical data for shares listed on the JSE. This submodule contains the validation procedures and depends on a Metrics submodule that houses risk and risk-adjusted return metrics. </li>
+				<li><em>Metrics: </em> This submodule contains the logic to determine portfolio performance, which is calculated using risk and risk-adjusted return metrics. </li>
+				<li><em>Prediction: </em> This component includes logic to facilitate the integration of a Graph Neural Network (GNN) with the BNs. Prediction is performed based on the close price data of each share. </li>
+			</ul>
+          </p>
+		  <h2> Bayesian Networks</h2>
+		  <section>
+			<div class="box alt">
+				<div class="row gtr-uniform">
+	
+					<div class="col-4"><span class="image fit"><img src="images/Value.jpeg" alt="" /></span></div>
+					<div class="col-4"><span class="image fit"><img src="images/extended_new_green.png" alt="" /></span></div>
+					<div class="col-4"><span class="image fit"><img src="images/IR.jpeg" alt="" /></span></div>
+				
 				</div>
-			</footer>
+			</div>	
+			<p> The Value Evaluation network is used to evaluate a share relative to price and determines whether a share is <em>Cheap</em>, <em>FairValue</em> or  <em>Expensive</em>. The Quality Evaluation network is used to evaluate the quality of a share and determines whether a share is of a <em>Low</em>, <em>Medium</em> or <em>High</em>  quality. Finally,  The Investment Recommendation network incorporates the output of the Quality and Value BNs to reflect the decision process performed by investors: evaluating whether the price of a share is reasonable and the quality of the share, thus providing an investment recommendation for a specific share. This network produces a final <em>Yes</em> or <em>No</em> decision pertaining to system's assessment of the share's suitability for investment. </p>
+		</section>
+		<h2>Experimental Design</h2>
+		<p> The dataset used consists of price and fundamental data for 36 shares listed on the JSE between 2012 - 2018: 17 shares from the General Industrials sector and 19 shares from the Consumer Services sector. The JSE All-Share Index, General Industrials (JGIND) and Consumer Services (JCSEV) are the selected benchmark indices to validate the share evaluation recommendations for the respective sectors. The benchmark dataset includes FTSE/JSE General Industrials index data, FTSE/JSE Consumer Services index data, as well as the FTSE/JSE All Share index data. 
+		</p>
+          <h2>Implementation</h2>
+		  <span class="image left"
+              ><img src="images/console.png" alt="" /></span
+            >Python, a general-purpose programming language is the selected
+            development platform for the system. The <em>PyAgrum</em> library
+            is used to create and manage Bayesian networks, given its ability to
+            perform efficient computations. Furthermore, a visualization web
+            console was developed using a <em>Flask</em> server and
+            <em> React</em>. This provides the user an opportunity to select
+            different experiments, and obtain a graphical view of the results in
+            comparison to the relative benchmark.
+			<h2>Results</h2>
+			<h2>Conclusion</h2>
+         
+        </div>
+      </section>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- Footer -->
+    <footer id="footer" class="wrapper alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; University of Cape Town. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
 
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
