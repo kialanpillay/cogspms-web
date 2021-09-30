@@ -1,60 +1,263 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>COGSPMS | Graph Neural Networks</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>COGSPMS | Graph Neural Networks</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="title">COGSPMS</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="semantic_bayesian_networks.html"
+              >Semantic Bayesian Networks</a
+            >
+          </li>
+          <li>
+            <a href="graph_neural_networks.html" class="active"
+              >Graph Neural Networks</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-		<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="title">COGSPMS</a>
-				<nav>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="semantic_bayesian_networks.html">Semantic Bayesian Networks</a></li>
-						<li><a href="graph_neural_networks.html" class="active">Graph Neural Networks</a></li>
-					</ul>
-				</nav>
-			</header>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <section id="main" class="wrapper">
+        <div class="inner" style="text-align: left">
+          <h1 class="major">Graph Neural Networks</h1>
+          <h2>Overview</h2>
+          <p>
+            Graph neural networks are a class of deep neural network models that
+            process graphically-encoded multivariate data. Spatial-temporal
+            graph neural networks process data exhibiting both spatial and
+            temporal dependencies.
+          </p>
+          <p>
+            A stock market is a financial market that facilitates the exchange
+            of ownership shares of listed financial securities. Stock markets
+            are dynamic systems that exhibit linear and non-linear dependencies.
+            A correlation matrix provides a mechanism for encoding multivariate
+            linear correlations in a graphical structure.
+          </p>
+          <p>
+            The literature has demonstrated ST-GNN applications to traffic
+            network, energy and medical datasets, but there is a deficit of
+            price prediction studies. Furthermore, existing research assumes
+            prior knowledge of the graph structure and earlier techniques
+            require predefined structure, an unsuitable prerequisite for stock
+            market prediction with latent dependencies.
+          </p>
+          <blockquote>
+            Previously introduced spatial-temporal GNNs are not suitable for
+            modelling multivariate time series due to two distinct factors:
+            unavailability of prior information and the sub-optimality of the
+            predefined graph - Wu et al. (2020)
+          </blockquote>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+          <h3>Research Objectives</h3>
+          <ul>
+            <li>
+              Evaluate the application of three ST-GNNs to Johannesburg Stock
+              Exchange (JSE)-listed share price prediction
+            </li>
+            <li>
+              Test the capability of a correlation matrix to capture market
+              dependencies and encode structural information
+            </li>
+          </ul>
+          <hr />
+          <h2>Methodology</h2>
+          <h3>Models</h3>
+          <p>
+            We evaluated Graph WaveNet (GWN), MTGNN and Spectral-Temporal Graph
+            Neural Network (StemGNN) for stock market price prediction.
+          </p>
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <h4>Graph WaveNet</h4>
+              <p>
+                GWN is a hybrid architecture for spatial-temporal graph
+                modelling. The architecture consists of temporal convolution
+                (Gated TCN) and graph convolution (GCN) modules. The GCN module
+                contains a self-adaptive adjacency matrix that requires no prior
+                information and is learnt using stochastic gradient descent.
+              </p>
+              <p>
+                The TCN module consists of one-dimensional convolutions that
+                capture long-range temporal sequences. The GCN module extracts
+                node-level dependencies using neighbourhood feature aggregation.
+                We evaluated a double transition matrix plus adaptive adjacency
+                matrix using the correlation matrix initialisation against the
+                adaptive-only adjacency matrix.
+              </p>
+            </div>
+            <div class="col-4 col-12-medium">
+              <h4>MTGNN</h4>
+              <p>
+                MTGNN is a hybrid architecture designed with an explicit focus
+                on multivariate time series forecasting. A graph learning layer
+                extracts an adaptive adjacency matrix that requires no prior
+                information. The TCN module captures temporal dependencies. The
+                GCN module extracts node-level dependencies using neighbourhood
+                feature aggregation.
+              </p>
+              <p>
+                MTGNN is trained using a curriculum learning strategy that
+                splits the input into subgroups. Curriculum learning locates
+                optimal local minima by training the algorithm on a single-step
+                forecasting task first and subsequently increasing the
+                prediction horizon. We evaluated a predefined static graph
+                structure against the adaptive-only adjacency matrix.
+              </p>
+            </div>
+            <div class="col-4 col-12-medium">
+              <h4>StemGNN</h4>
+              <p>
+                StemGNN is a hybrid architecture for multivariate time series
+                forecasting that captures inter-series correlations and temporal
+                dependencies in the spectral domain. StemGNN is trained on the
+                spectral representation of the graph using graph signal
+                processing techniques. The Spectral-GCN captures dependencies in
+                the spectral domain.
+              </p>
+              <p>
+                A graph signal is transformed into the spectral domain by a
+                Fourier transform and a convolution operator is applied to the
+                spectral signal. A latent correlation layer automatically learns
+                correlations between time series to extract an adjacency matrix
+                without prior information. For our evaluation, StemGNN was not
+                initialised with the correlation matrix.
+              </p>
+            </div>
+          </div>
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Graph Neural Networks</h1>
-						</div>
-					</section>
+          <div class="table-wrapper">
+            <table class="alt">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Item One</td>
+                  <td>Ante turpis integer aliquet porttitor.</td>
+                  <td>29.99</td>
+                </tr>
+                <tr>
+                  <td>Item Two</td>
+                  <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                  <td>19.99</td>
+                </tr>
+                <tr>
+                  <td>Item Three</td>
+                  <td>Morbi faucibus arcu accumsan lorem.</td>
+                  <td>29.99</td>
+                </tr>
+                <tr>
+                  <td>Item Four</td>
+                  <td>Vitae integer tempus condimentum.</td>
+                  <td>19.99</td>
+                </tr>
+                <tr>
+                  <td>Item Five</td>
+                  <td>Ante turpis integer aliquet porttitor.</td>
+                  <td>29.99</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2"></td>
+                  <td>100.00</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
 
-			</div>
+          <h3>Experimental Design</h3>
+          <div class="row">
+            <div class="col-6 col-12-medium">
+              <h4>Data</h4>
+              <ul>
+                <li>FTSE/JSE Top 40 Index Daily Close Prices</li>
+                <li>18 May 2009 - 20 July 2021</li>
+                <li>3146 Samples x 30 Stocks</li>
+                <li>60:20:20 Train/Validate/Test Split</li>
+              </ul>
+              <h4>Baseline</h4>
+              <ul>
+                <li>Long-term Short Memory (LSTM) Model</li>
+                <li>Last-Value (Naive) Model</li>
+              </ul>
+            </div>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+            <div class="col-6 col-12-medium">
+              <h4>Setup</h4>
+              <ul>
+                <li>
+                  Apple MacBook Pro Intel(R) Core(TM) i5-8257U CPU @ 1.4 GHz
+                </li>
+                <li>50 Epochs</li>
+				<li>Mean Squared Error Loss Function</li>
+                <li>RMSProp Optimiser</li>
+                
+                <li>
+                  <b>Metrics</b>
+                  <ol>
+                    <li>Mean Absolute Percentage Error (MAPE)</li>
+                    <li>Mean Absolute Error (MAE)</li>
+                    <li>Root Mean Squared Error (RMSE)</li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <h2>Results</h2>
+          <hr />
+          <h2>Conclusions</h2>
+        </div>
+      </section>
+    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- Footer -->
+    <footer id="footer" class="wrapper alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; Untitled. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
 
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
