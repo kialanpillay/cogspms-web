@@ -141,11 +141,11 @@
               </p>
               <p>
                 A graph signal is transformed into the spectral domain by a
-                Fourier transform and a convolution operator is applied to the
-                spectral signal. A latent correlation layer automatically learns
-                correlations between time series to extract an adjacency matrix
-                without prior information. For our evaluation, StemGNN was not
-                initialised with the correlation matrix.
+                Fourier transform &#8497; and a convolution operator is applied
+                to the spectral signal. A latent correlation layer automatically
+                learns correlations between time series to extract an adjacency
+                matrix without prior information. For our evaluation, StemGNN
+                was not initialised with the correlation matrix.
               </p>
             </div>
           </div>
@@ -154,44 +154,41 @@
             <table class="alt">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Price</th>
+                  <th>Architecture</th>
+                  <th>Type</th>
+                  <th>Temporal Component</th>
+                  <th>Spatial Component</th>
+                  <th>Datasets (MAPE%)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Item One</td>
-                  <td>Ante turpis integer aliquet porttitor.</td>
-                  <td>29.99</td>
+                  <td>Graph WaveNet</td>
+                  <td>Spatial-Temporal</td>
+                  <td>Gated Temporal Convolution</td>
+                  <td>Graph Convolution</td>
+                  <td>Traffic (8.23%)</td>
                 </tr>
                 <tr>
-                  <td>Item Two</td>
-                  <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                  <td>19.99</td>
+                  <td>MTGNN</td>
+                  <td>Spatial-Temporal</td>
+                  <td>Temporal Convolution</td>
+                  <td>Graph Convolution</td>
+                  <td>
+                    Traffic (5.18%)<br />Electricity<br />Solar<br />Forex
+                  </td>
                 </tr>
                 <tr>
-                  <td>Item Three</td>
-                  <td>Morbi faucibus arcu accumsan lorem.</td>
-                  <td>29.99</td>
-                </tr>
-                <tr>
-                  <td>Item Four</td>
-                  <td>Vitae integer tempus condimentum.</td>
-                  <td>19.99</td>
-                </tr>
-                <tr>
-                  <td>Item Five</td>
-                  <td>Ante turpis integer aliquet porttitor.</td>
-                  <td>29.99</td>
+                  <td>StemGNN</td>
+                  <td>Spectral-Temporal</td>
+                  <td>Spectral-Sequential Cell</td>
+                  <td>Spectral Graph Convolution</td>
+                  <td>
+                    Traffic (6.46%)<br />Electricity (14.77%)<br />Solar
+                    (11.55%)<br />ECG (10.58%)
+                  </td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="2"></td>
-                  <td>100.00</td>
-                </tr>
-              </tfoot>
             </table>
           </div>
 
@@ -202,7 +199,7 @@
               <ul>
                 <li>FTSE/JSE Top 40 Index Daily Close Prices</li>
                 <li>18 May 2009 - 20 July 2021</li>
-                <li>3146 Samples x 30 Stocks</li>
+                <li>3146 Samples &times; 30 Stocks</li>
                 <li>60:20:20 Train/Validate/Test Split</li>
               </ul>
               <h4>Baseline</h4>
@@ -216,12 +213,13 @@
               <h4>Setup</h4>
               <ul>
                 <li>
-                  Apple MacBook Pro Intel(R) Core(TM) i5-8257U CPU @ 1.4 GHz
+                  Apple MacBook Pro Intel&reg; Core&trade; i5-8257U CPU @ 1.4
+                  GHz
                 </li>
                 <li>50 Epochs</li>
-				<li>Mean Squared Error Loss Function</li>
+                <li>Mean Squared Error Loss Function</li>
                 <li>RMSProp Optimiser</li>
-                
+
                 <li>
                   <b>Metrics</b>
                   <ol>
