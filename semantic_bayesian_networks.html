@@ -42,7 +42,7 @@
       <section id="main" class="wrapper">
         <div class="inner">
           <h1 class="major">Semantic Bayesian Networks</h1>
-          <h2>Background & Context</h2>
+          <h2>Overview</h2>
           <p>
             Portfolio management is a complex decision-making process that aims
             to maximise return through the proportional allocation of investable
@@ -69,53 +69,111 @@
             useful in the financial domain as it represents uncertain, ambiguous
             or incomplete knowledge.
           </p>
+          <h3> Aims</h3>
           <p>
-            In this research, we will empirically evaluate the
+            In this research, we will  empirically evaluate the
             <em>INVEST</em> system with varying conditions and test several
-            system extensions. Firstly, we will evaluate the base
-            <em>INVEST</em> system as designed by Drake. Secondly, we will
+            system extensions. 
+            <ul>
+              <li>
+                Firstly, we will evaluate the base
+                <em>INVEST</em> system as designed by Drake.
+              </li>
+              <li>
+                Secondly, we will
             conduct an ablation study to assess the relative importance of each
-            component in the overall framework. Thirdly, we will extend the
-            system to include systematic risk within the BN topology. Fourthly,
+            component in the overall framework.
+              </li>
+              <li>
+                Thirdly, we will extend the
+            system to include systematic risk within the BN topology.
+              </li>
+              <li>
+                Fourthly,
             we will test the stability and robustness of the
             <em>INVEST</em> system through a noise simulation component.
-            Finally, we will integrate a deep learning predictive component into
-            the <em>INVEST</em> system.
+              </li>
+              <li>
+                Finally, we will integrate a deep learning predictive component into
+                the <em>INVEST</em> system.
+              </li>
+            </ul>
           </p>
 
           <h2>System Design</h2>
           <p>
             <span class="image left"
-              ><img src="images/package_diagram.png" alt="" /></span
-            >The system is composed of six submodules within the <em>INVEST</em>
-            module. The package diagram on the left depicts the dependencies
-            between modules.
-			<ul>
-				<li><em>INVEST: </em> This module contains a <em>Store</em> class, which represents the central point of the system. Responsibilities include invoking the functionality of the 6 submodules and running different experiments dependent on user input. 
-				<li><em>Preprocessing: </em>This submodule contains data loading and preprocessing utilities. Furthermore, this component has been extended to include a noise simulation component to facilitate system stress tests.  
-					
-				<li><em>Calculator: </em> This submodule performs the financial calculations of the system for each company, using financial ratios computation and thresholding logic. Financial ratios produce a numerical output, which the threshold component subsequently converts to discrete states required as input for the BNs. </li>
-				<li><em>Networks: </em> This submodule contains the implementation of three decision networks used to reach an investment decision: Value Evaluation, Quality Evaluation, and Investment Recommendation. These BNs conduct inference using the evidence returned by the thresholding component. </li>
-				<li><em>Evaluation: </em> The <em>INVEST</em> system is evaluated through back-testing using historical data for shares listed on the JSE. This submodule contains the validation procedures and depends on a Metrics submodule that houses risk and risk-adjusted return metrics. </li>
-				<li><em>Metrics: </em> This submodule contains the logic to determine portfolio performance, which is calculated using risk and risk-adjusted return metrics. </li>
-				<li><em>Prediction: </em> This component includes logic to facilitate the integration of a Graph Neural Network (GNN) with the BNs. Prediction is performed based on the close price data of each share. </li>
-			</ul>
+              ><img src="images/Invest_Package.png" alt="" /></span
+            >
+                 <br /> The system is composed of six submodules within the <em>INVEST</em>
+            module. The <em>INVEST</em> module contains a <em>Store</em> class, which represents the central point of the system. Responsibilities include invoking the functionality of the 6 submodules and running different experiments dependent on user input.  The package diagram on the left depicts the dependencies
+            between modules and submodules.
+            <br /> 
+            <br /> 
+            <section  class="wrapper style3 fade-up">
+              <div class="inner">
+                <h2>Submodules</h2>
+                <div class="features">
+                  <section>
+                    <span class="icon major">1</span>
+                    <h3><em>Preprocessing: </em></h3>
+                    <p>This submodule contains data loading and preprocessing utilities. Furthermore, this component has been extended to include a noise simulation component to facilitate system stress tests. </p>
+            
+                  </section>
+                  <section>
+                    <span class="icon major">2</span>
+                    <h3><em>Calculator: </em></h3>
+                    <p>This submodule performs the financial calculations of the system for each company, using financial ratios computation and thresholding logic. Financial ratios produce a numerical output, which the threshold component subsequently converts to discrete states required as input for the BNs.</p>
+                
+                  </section>
+                  <section>
+                    <span class="icon major">3</span>
+                    <h3><em>Networks: </em> </h3>
+                    <p><em>Insaaf Dhansay & Kialan Pillay</em><br/>An Intelligent System for Automated Share Evaluation using Graph Neural Networks and Semantic Bayesian Networks</p>
+                
+                  </section>
+                  <section>
+                    <span class="icon major">4</span>
+                    <h3><em>Evaluation: </em></h3>
+                    <p>The <em>INVEST</em> system is evaluated through back-testing using historical data for shares listed on the JSE. This submodule contains the validation procedures and depends on a Metrics submodule that houses risk and risk-adjusted return metrics. </p>
+                   
+                  </section>
+                  <section>
+                    <span class="icon major">5</span>
+                    <h3><em>Metrics: </em></h3>
+                    <p> This submodule contains the logic to determine portfolio performance, which is calculated using risk and risk-adjusted return metrics.</p>
+                
+                  </section>
+                  <section>
+                    <span class="icon major">6</span>
+                    <h3><em>Prediction: </em></h3>
+                    <p><em>This component includes logic to facilitate the integration of a Graph Neural Network (GNN) with the BNs. Prediction is performed based on the close price data of each share.</p>
+                 
+                  </section>
+                </div>
+              </div>
+            </section>
           </p>
 		  <h2> Bayesian Networks</h2>
 		  <section>
 			<div class="box alt">
 				<div class="row gtr-uniform">
 	
-					<div class="col-4"><span class="image fit"><img src="images/Value.jpeg" alt="" /></span></div>
-					<div class="col-4"><span class="image fit"><img src="images/extended_new_green.png" alt="" /></span></div>
-					<div class="col-4"><span class="image fit"><img src="images/IR.jpeg" alt="" /></span></div>
-				
+          <div class="col-12"><span class="image fit"><img src="images/BnCombo.png" alt="" /></span></div>
 				</div>
 			</div>	
 			<p> The Value Evaluation network is used to evaluate a share relative to price and determines whether a share is <em>Cheap</em>, <em>FairValue</em> or  <em>Expensive</em>. The Quality Evaluation network is used to evaluate the quality of a share and determines whether a share is of a <em>Low</em>, <em>Medium</em> or <em>High</em>  quality. Finally,  The Investment Recommendation network incorporates the output of the Quality and Value BNs to reflect the decision process performed by investors: evaluating whether the price of a share is reasonable and the quality of the share, thus providing an investment recommendation for a specific share. This network produces a final <em>Yes</em> or <em>No</em> decision pertaining to system's assessment of the share's suitability for investment. </p>
 		</section>
 		<h2>Experimental Design</h2>
-		<p> The dataset used consists of price and fundamental data for 36 shares listed on the JSE between 2012 - 2018: 17 shares from the General Industrials sector and 19 shares from the Consumer Services sector. The JSE All-Share Index, General Industrials (JGIND) and Consumer Services (JCSEV) are the selected benchmark indices to validate the share evaluation recommendations for the respective sectors. The benchmark dataset includes FTSE/JSE General Industrials index data, FTSE/JSE Consumer Services index data, as well as the FTSE/JSE All Share index data. 
+		<p>  <ul>
+      <li>
+        <em> Dataset: </em> The dataset used consists of price and fundamental data for 36 shares listed on the JSE between 2012 - 2018: 17 shares from the General Industrials sector and 19 shares from the Consumer Services sector.
+      </li>
+      <li> <em> Benchmark: </em> The JSE All-Share Index, General Industrials (JGIND) and Consumer Services (JCSEV) are the selected benchmark indices to validate the share evaluation recommendations for the respective sectors. The benchmark dataset includes FTSE/JSE General Industrials index data, FTSE/JSE Consumer Services index data, as well as the FTSE/JSE All Share index data.  </li>
+      <li> <em>Evaluation: </em>Return and Risk-Adjusted Return metrics are used to evaluate the performance of the semantic BNs for share evaluation. These metrics include Annual Return , Compound Return , Average Annual Return, Treynor Ratio and  Sharpe Ratio. This selection is informed by our requirements of reproducibility \cite{drake2020invest} and to support robust evaluation of other BN topologies. The system is evaluated over one-year and one-month holding periods. </li>
+      <li> <em>Setup: </em>Each experiment is conducted on an Apple MacBook Pro with an Intel(R) Core(TM) i5 CPU @ 2.4 GHz. Each experiment was run with the default margin of safety (threshold) of 0.1 and a $\beta$ of 0.2 if not specified otherwise. </li>
+  </ul>
+ 
 		</p>
           <h2>Implementation</h2>
 		  <span class="image left"
