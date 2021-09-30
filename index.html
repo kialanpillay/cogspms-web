@@ -1,190 +1,336 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>COGSPMS</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>COGSPMS</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Sidebar -->
+    <section id="sidebar">
+      <div class="inner">
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#home">Home</a></li>
-							<li><a href="#overview">Overview</a></li>
-							<li><a href="#research">Research</a></li>
-							<li><a href="#resources">Resources</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Home -->
+      <section id="home" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+          <h1>COGSPMS</h1>
+          <p>
+            An Intelligent System for Automated Share Evaluation using Graph
+            Neural Networks and Semantic Bayesian Networks
+          </p>
+          <ul class="actions">
+            <li><a href="#overview" class="button scrolly">Learn More</a></li>
+          </ul>
+        </div>
+      </section>
+      <!-- Overview -->
+      <section id="overview" class="wrapper style3 fade-up">
+        <div class="inner">
+          <h2>Overview</h2>
+          <p>
+            Portfolio management is a decision-making process that aims to
+            minimise risk and maximise return through the proportional
+            allocation of capital into identified financial securities or
+            shares.
+          </p>
+          <p>
+            The initial share evaluation phase involves identifying shares with
+            suitable risk-return characteristics for investment.
+            <br />Stock markets are complex, dynamic systems, and share
+            evaluation ordinarily requires manual analysis and expert domain
+            knowledge on the part of the decision-maker.
+          </p>
+          <p>
+            The literature investigating share evaluation and portfolio
+            selection using Artificial Intelligence techniques are black-box and
+            provide minimal decision support.
+            <br /><em>INVEST</em> is a semantic Bayesian network-based
+            intelligent decision support system framework for share evaluation,
+            but has yet to be implemented and empirically evaluated.
+          </p>
+          <p>
+            Spatial-temporal graph neural network (ST-GNN) applications to stock
+            market prediction have yet to be tested, for which the forecasts can
+            act as a proxy for share evaluation.
+          </p>
+        </div>
+      </section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+      <!-- Research -->
+      <section id="research" class="wrapper style2 spotlights">
+        <section>
+          <a href="#" class="image"
+            ><img src="images/sbn.png" alt="" data-position="left center"
+          /></a>
+          <div class="content">
+            <div class="inner">
+              <h2>Semantic Bayesian Networks</h2>
+              <p>
+                Semantic Bayesian networks are a class of Artificial
+                Intelligence techniques that support explainability in
+                intelligent systems. This research implements and evaluates the
+                <em>INVEST</em> intelligent decision support system and several
+                extensions under various conditions for Johannesburg Stock
+                Exchange-listed share evaluation.
+              </p>
+              <ul class="actions">
+                <li>
+                  <a href="semantic_bayesian_networks.html" class="button"
+                    >Learn more</a
+                  >
+                </li>
+                <li>
+                  <a href="generic.html" class="button icon solid fa-desktop"
+                    >INVEST Console</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <a href="#" class="image"
+            ><img src="images/gnn.png" alt="" data-position="left center"
+          /></a>
+          <div class="content">
+            <div class="inner">
+              <h2>Graph Neural Networks</h2>
+              <p>
+                Spatial-temporal graph neural networks are models that process
+                graphically-encoded multivariate data exhibiting both spatial
+                and temporal dependencies. This research evaluates ST-GNN
+                architectures for Johannesburg Stock Exchange price prediction,
+                and assesses the suitability of a correlation matrix to capture
+                market dependencies and encode structural information.
+              </p>
+              <ul class="actions">
+                <li>
+                  <a href="graph_neural_networks.html" class="button"
+                    >Learn more</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/kialanpillay/cogspms"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button icon brands fa-github"
+                    >GitHub Repository</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
 
-				<!-- Home -->
-					<section id="home" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>COGSPMS</h1>
-							<p>An Intelligent System for Automated Share Evaluation using Graph Neural Networks and Semantic Bayesian Networks</p>
-							<ul class="actions">
-								<li><a href="#overview" class="button scrolly">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
-				<!-- Overview -->
-					<section id="overview" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Overview</h2>
-							<p>
-								Portfolio management is a decision-making process that aims to minimise risk and maximise return through the proportional allocation of capital into identified financial securities or shares. 
-							</p>
-							<p>
-								The initial share evaluation phase involves identifying shares with suitable risk-return characteristics for investment. 
-								<br/>Stock markets are complex, dynamic systems, and share evaluation ordinarily requires manual analysis and expert domain knowledge on the part of the decision-maker. 
-							</p>
-							<p>
-								The literature investigating share evaluation and portfolio selection using Artificial Intelligence techniques are black-box and provide minimal decision support. 
-								<br/><em>INVEST</em> is a semantic Bayesian network-based intelligent decision support system framework for share evaluation, but has yet to be implemented and empirically evaluated. 
-							</p>
-							<p>
-								Spatial-temporal graph neural network (ST-GNN) applications to stock market prediction have yet to be tested, for which the forecasts can act as a proxy for share evaluation. 
-							</p>
-						</div>
-					</section>
+      <!-- Three -->
+      <section id="resources" class="wrapper style3 fade-up">
+        <div class="inner">
+          <h2>Resources</h2>
+          <p>Download related documents for COGSPMS</p>
+          <div class="features">
+            <section>
+              <span class="icon major fa-bookmark"></span>
+              <h3>Literature Review</h3>
+              <p>
+                <em>Insaaf Dhansay</em><br />An Intelligent System for Automated
+                Portfolio Management using Semantic Bayesian Networks
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/CSC4019Z_COGSPMS_Literature_Review_DHNINS001.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-bookmark"></span>
+              <h3>Literature Review</h3>
+              <p>
+                <em>Kialan Pillay</em><br />Investigating the Application of
+                Graph Neural Networks in an Intelligent System for Automated
+                Portfolio Management
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/CSC4019Z_COGSPMS_Literature_Review_PLLKIA010.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-lightbulb"></span>
+              <h3>Proposal</h3>
+              <p>
+                <em>Insaaf Dhansay & Kialan Pillay<br /></em>An Intelligent
+                System for Automated Portfolio Management using Graph Neural
+                Networks and Semantic Bayesian Networks
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="generic.html"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major solid fa-pen-square"></span>
+              <h3>Poster</h3>
+              <p>
+                <em>Insaaf Dhansay & Kialan Pillay</em><br />An Intelligent
+                System for Automated Share Evaluation using Graph Neural
+                Networks and Semantic Bayesian Networks
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="generic.html"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-file-alt"></span>
+              <h3>Paper</h3>
+              <p>
+                <em>Insaaf Dhansay</em><br />INVEST: An Intelligent System for
+                Automated Share Evaluation using Semantic Bayesian Networks
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/CSC4002W_COGSPMS_Paper_DHNINS001.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-file-alt"></span>
+              <h3>Paper</h3>
+              <p>
+                <em>Kialan Pillay</em><br />Investigating the Application <br />
+                of Graph Neural Networks to Stock Market Prediction
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/CSC4002W_COGSPMS_Paper_PLLKIA010.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-file-alt"></span>
+              <h3>Masters Thesis</h3>
+              <p>
+                <em>Rachel Drake</em><br />A semantic Bayesian network for
+                automated share evaluation on the JSE
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/Rachel_Drake_MIT-mini-thesis_2020.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <span class="icon major fa-file-alt"></span>
+              <h3>Conference Proceedings Paper</h3>
+              <p>
+                <em>Kialan Pillay & Deshendran Moodley</em><br />Exploring Graph
+                Neural Networks for Stock Market Prediction
+              </p>
+              <ul class="actions">
+                <li>
+                  <a
+                    href="assets/res/Exploring_Graph_Neural_Networks_for_Stock_Market_Prediction_SACAIR_Pillay_Moodley.pdf"
+                    target="_blank"
+                    rel="noopenner"
+                    class="button"
+                    >Download</a
+                  >
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
 
-				<!-- Research -->
-				<section id="research" class="wrapper style2 spotlights">
-					<section>
-						<a href="#" class="image"><img src="images/sbn.png" alt="" data-position="left center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Semantic Bayesian Networks</h2>
-								<p>Semantic Bayesian networks are a class of Artificial Intelligence techniques that support explainability in intelligent systems. This research implements and evaluates the <em>INVEST</em> intelligent decision support system and several extensions under various conditions for Johannesburg Stock Exchange-listed share evaluation.</p>
-								<ul class="actions">
-									<li><a href="semantic_bayesian_networks.html" class="button">Learn more</a></li>
-									<li><a href="generic.html" class="button icon solid fa-desktop">INVEST Console</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section>
-						<a href="#" class="image"><img src="images/gnn.png" alt="" data-position="left center" /></a>
-						<div class="content">
-							<div class="inner">
-								<h2>Graph Neural Networks</h2>
-								<p>Spatial-temporal graph neural networks are models that process graphically-encoded multivariate data exhibiting both spatial and temporal dependencies. This research evaluates ST-GNN architectures for Johannesburg Stock Exchange price prediction, and assesses the suitability of a correlation matrix to capture market dependencies and encode structural information.</p>
-								<ul class="actions">
-									<li><a href="graph_neural_networks.html" class="button">Learn more</a></li>
-									<li><a href="https://github.com/kialanpillay/cogspms" target="_blank" rel="noopenner" class="button icon brands fa-github">GitHub Repository</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-				</section>
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; University of Cape Town. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
 
-				<!-- Three -->
-					<section id="resources" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Resources</h2>
-							<p>Download related documents for COGSPMS</p>
-							<div class="features">
-								<section>
-									<span class="icon major fa-bookmark"></span>
-									<h3>Literature Review</h3>
-									<p><em>Insaaf Dhansay</em><br/>An Intelligent System for Automated Portfolio Management using Semantic Bayesian Networks</p>
-									<ul class="actions">
-										<li><a href="assets/res/CSC4019Z_COGSPMS_Literature_Review_DHNINS001.pdf" target="_blank" rel="noopenner"  class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-bookmark"></span>
-									<h3>Literature Review</h3>
-									<p><em>Kialan Pillay</em><br/>Investigating the Application of Graph Neural Networks in an Intelligent System for Automated Portfolio Management</p>
-									<ul class="actions">
-										<li><a href="assets/res/CSC4019Z_COGSPMS_Literature_Review_PLLKIA010.pdf" target="_blank" rel="noopenner"  class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-lightbulb"></span>
-									<h3>Proposal</h3>
-									<p><em>Insaaf Dhansay & Kialan Pillay<br/></em>An Intelligent System for Automated Portfolio Management using Graph Neural Networks and Semantic Bayesian Networks</p>
-									<ul class="actions">
-										<li><a href="generic.html" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major solid fa-pen-square"></span>
-									<h3>Poster</h3>
-									<p><em>Insaaf Dhansay & Kialan Pillay</em><br/>An Intelligent System for Automated Share Evaluation using Graph Neural Networks and Semantic Bayesian Networks</p>
-									<ul class="actions">
-										<li><a href="generic.html" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-file-alt"></span>
-									<h3>Paper</h3>
-									<p><em>Insaaf Dhansay</em><br/>INVEST: An Intelligent System for Automated Share Evaluation using Semantic Bayesian Networks</p>
-									<ul class="actions">
-										<li><a href="assets/res/CSC4002W_COGSPMS_Paper_DHNINS001.pdf" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-file-alt"></span>
-									<h3>Paper</h3>
-									<p><em>Kialan Pillay</em><br/>Investigating the Application <br/> of Graph Neural Networks to Stock Market Prediction</p>
-									<ul class="actions">
-										<li><a href="assets/res/CSC4002W_COGSPMS_Paper_PLLKIA010.pdf" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-file-alt"></span>
-									<h3>Masters Thesis</h3>
-									<p><em>Rachel Drake</em><br/>A semantic Bayesian network for automated share evaluation on the JSE</p>
-									<ul class="actions">
-										<li><a href="assets/res/Rachel_Drake_MIT-mini-thesis_2020.pdf" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon major fa-file-alt"></span>
-									<h3>Conference Proceedings Paper</h3>
-									<p><em>Kialan Pillay & Deshendran Moodley</em><br/>Exploring Graph Neural Networks for Stock Market Prediction</p>
-									<ul class="actions">
-										<li><a href="assets/res/Exploring_Graph_Neural_Networks_for_Stock_Market_Prediction_SACAIR_Pillay_Moodley.pdf" target="_blank" rel="noopenner" class="button">Download</a></li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; University of Cape Town. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
