@@ -52,26 +52,63 @@
       <section id="overview" class="wrapper style3 fade-up">
         <div class="inner">
           <h2>Overview</h2>
+          <div class="row">
+            <div class="col-6 col-12-medium">
+              <p>
+                Portfolio management is a decision-making process that aims to
+                minimise risk and maximise return through the proportional
+                allocation of capital into identified financial securities or
+                shares.
+              </p>
+              <p>
+                The initial share evaluation phase involves identifying shares
+                with suitable risk-return characteristics for inclusion in an
+                investment portfolio.
+              </p>
+              <p>
+                Stock markets are complex, dynamic systems, and share evaluation
+                ordinarily requires manual analysis and expert domain knowledge
+                on the part of the decision-maker.
+              </p>
+            </div>
+
+            <div class="col-6 col-12-medium">
+              <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script
+                  type="text/javascript"
+                  src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+                  async
+                >
+                  {
+                  "symbol": "JSE:NPN",
+                  "width": "100%",
+                  "height": "95%",
+                  "locale": "en",
+                  "dateRange": "12M",
+                  "colorTheme": "dark",
+                  "trendLineColor": "#327aff",
+                  "underLineColor": "rgba(41, 98, 255, 0.3)",
+                  "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                  "isTransparent": true,
+                  "autosize": true,
+                  "largeChartUrl": ""
+                   }
+                </script>
+              </div>
+            </div>
+          </div>
+
           <p>
-            Portfolio management is a decision-making process that aims to
-            minimise risk and maximise return through the proportional
-            allocation of capital into identified financial securities or
-            shares.
+            The literature investigating portfolio management sub-tasks: share
+            evaluation and portfolio selection, using Artificial Intelligence
+            techniques, are black-box and provide minimal decision support to users.
           </p>
           <p>
-            The initial share evaluation phase involves identifying shares with
-            suitable risk-return characteristics for investment.
-            <br />Stock markets are complex, dynamic systems, and share
-            evaluation ordinarily requires manual analysis and expert domain
-            knowledge on the part of the decision-maker.
-          </p>
-          <p>
-            The literature investigating share evaluation and portfolio
-            selection using Artificial Intelligence techniques are black-box and
-            provide minimal decision support.
-            <br /><em>INVEST</em> is a semantic Bayesian network-based
-            intelligent decision support system framework for share evaluation,
-            but has yet to be implemented and empirically evaluated.
+            <em>INVEST</em> is a semantic Bayesian network-based intelligent
+            decision support system framework for share evaluation on the
+            Johannesburg Stock Exchange, but has yet to be implemented and
+            empirically evaluated.
           </p>
           <p>
             Spatial-temporal graph neural network (ST-GNN) applications to stock
@@ -82,15 +119,15 @@
       </section>
 
       <!-- Research -->
-      <section id="research" class="wrapper style2 spotlights">
+      <section id="research_" class="wrapper style2 spotlights">
         <section>
-          <a href="#" class="image"
+          <span class="image"
             ><img
               src="images/sbn.png"
               alt=""
               data-position="center center"
               style="height: 50%"
-          /></a>
+          /></span>
           <div class="content">
             <div class="inner">
               <h2>Semantic Bayesian Networks</h2>
@@ -118,9 +155,9 @@
           </div>
         </section>
         <section>
-          <a href="#" class="image"
+          <span class="image"
             ><img src="images/gnn.png" alt="" data-position="left center"
-          /></a>
+          /></span>
           <div class="content">
             <div class="inner">
               <h2>Graph Neural Networks</h2>
@@ -325,13 +362,9 @@
               <form>
                 <div class="fields">
                   <div class="field half">
-                    <span class="icon fa-user"
-                      >&nbsp;&nbsp;Insaaf Dhansay</span
-                    >
-					<br />
-                    <span class="icon fa-user"
-                      >&nbsp;&nbsp;Kialan Pillay</span
-                    >
+                    <span class="icon fa-user">&nbsp;&nbsp;Insaaf Dhansay</span>
+                    <br />
+                    <span class="icon fa-user">&nbsp;&nbsp;Kialan Pillay</span>
                   </div>
                   <div class="field half">
                     <a
