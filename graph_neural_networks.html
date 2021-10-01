@@ -143,9 +143,9 @@
                 A graph signal is transformed into the spectral domain by a
                 Fourier transform &#8497; and a convolution operator is applied
                 to the spectral signal. A latent correlation layer automatically
-                learns inter-series correlations to extract an adjacency
-                matrix without prior information. For our evaluation, StemGNN
-                was not initialised with the correlation matrix.
+                learns inter-series correlations to extract an adjacency matrix
+                without prior information. For our evaluation, StemGNN was not
+                initialised with the correlation matrix.
               </p>
             </div>
           </div>
@@ -232,9 +232,177 @@
             </div>
           </div>
           <hr />
-          <h2>Results</h2>
+          <h2>Results &amp; Conclusions</h2>
+          <h3>Single-Step Forecasting</h3>
+          <p>
+            We tested the performance of the ST-GNNs and baseline LSTM and Naive
+            models on a single-step forecasting task for 30-, 60- and 120-day
+            window sizes. Regular trading days for the Johannesburg Stock
+            Exchange are Monday through Friday, and thus the selected window
+            sizes correspond to 6, 12 and 24 trading weeks.
+          </p>
+          <p>
+            The results show that <b>MTGNN</b> outperforms both GWN and StemGNN
+            by a substantial margin for all tested input window sizes. The
+            performance variation between MTGNN and GWN and StemGNN increases as
+            the window size is increased, as MTGNN does not demonstrate similar
+            levels of performance degradation. Further, the results demonstrate
+            that predictive performance of the GNN and baseline models decreases
+            as the window size is increased.
+          </p>
+          <p>
+            The results show that <b>MTGNN</b> outperforms both GWN and StemGNN
+            by a substantial margin for all tested input window sizes. The
+            performance variation between MTGNN and GWN and StemGNN increases as
+            the window size is increased, as MTGNN does not demonstrate similar
+            levels of performance degradation. Further, the results demonstrate
+            that predictive performance of the GNN and baseline models decreases
+            as the window size is increased.
+          </p>
+
+          <h3>Multi-Step Forecasting</h3>
+          <p>
+            We tested the performance of ST-GNNs and baseline LSTM on a
+            multi-step forecasting task for 20-, 40- and 60-day window sizes and
+            5-, 10- and 20-day prediction horizons.
+          </p>
+
+          <p>
+            Comparing MAPE, <b>GWN</b> significantly outperforms MTGNN, StemGNN
+            and the LSTM for the tested hyperparameters. Whilst the LSTM obtains
+            consistently lower RMSE scores, this can be attributed to the
+            independently-generated model predictions, which potentially reduces
+            error propagation.<br />
+          </p>
+          <p>
+            MTGNN is the unexpected laggard for the evaluated multi-step
+            forecasting tasks, demonstrating inferior performance relative to
+            the baseline. However, recall that the LSTM is incapable of
+            multi-node forecasting.
+          </p>
+
+          <p>
+            The results show a general decline in predictive performance as the
+            horizon length is increased. There is no clear relation between
+            window size and prediction error.
+          </p>
+
+          <p>
+            Our results demonstrate that an ST-GNN can produce suitable accuracy
+            on the price prediction problem. For both tasks, a ST-GNN achieves a
+            considerable performance improvement over the baseline LSTM. This
+            supports modelling both temporal and latent spatial dependencies in
+            stock market data.
+          </p>
+
+          <h3>Correlation Matrix Multi-Step Forecasting</h3>
+          <p>
+            <span class="image right"
+              ><img src="images/JSE_corr.png" alt="" style="width: 80%" />
+              <em>FTSE/JSE Top 40 Index Correlation Matrix</em>
+            </span>
+            We tested the performance of GWN and MTGNN on a multi-step
+            forecasting task for 20- and 40- window sizes, 5- and 10-day
+            horizons with the inclusion of the correlation matrix to initialise
+            the GWN and MTGNN adjacency matrices.
+          </p>
+          <p>
+            The results demonstrate that the provision of structural information
+            proxied by a correlation matrix does not improve predictive
+            performance. For GWN, the forward-backward-adaptive adjacency matrix
+            configuration marginally outperforms a 20-day input window only.
+          </p>
+
+          <p>
+            The provision of prior information results in a minimal improvement
+            in MTGNN's predictive performance for a 20-day window. However,
+            performance similarly degrades as the window size is doubled.
+          </p>
+
+          <p>
+            Our results show that a correlation matrix is a sub-optimal
+            mechanism encode prior structural information. The prior inclusion
+            of multivariate correlations produced a negligible impact on
+            predictive accuracy. We conclude that linear correlations do not
+            caputre complex latent dependencies in the stock market.
+          </p>
+
+          <h3>Multivariate Correlation Analysis</h3>
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/bicluster_n_2.png" alt="" style="width: 80%"
+              /></span>
+              <em>Bi-clustered Correlation Matrix</em>
+            </div>
+
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/GWN_adaptive.png" alt="" style="width: 80%"
+              /></span>
+              <em>GWN Adaptive Adjacency Matrix</em>
+            </div>
+
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/MTGNN_adaptive.png" alt="" style="width: 80%"
+              /></span>
+              <em>MTGNN Adaptive Adjacency Matrix</em>
+            </div>
+          </div>
+          <br />
+          <p>
+            GWN extract a graph structure that is highly dissimilar to that
+            represented by the correlation matrix. <br />Comparing the adaptive
+            adjacency matrices, GWN extracts a sparse graphical structure, in
+            contrast to the dense graph learnt by MTGNN. <br />There are no
+            identifiable commonalities between the two matrices, nor is one
+            matrix a more fine-grained dependency representation.
+          </p>
+
+          <p>
+            <span class="image right"
+              ><img src="images/network.png" alt="" style="width: 90%" />
+              <em> Simple Correlation Network </em></span
+            >
+            GWN's share price forecasting performance suggests that the model
+            can accurately extract spatial dependencies. Therefore, we can infer
+            that fewer complex dependencies exist, given that the sparse graph
+            is an approximate representation of market structure.
+          </p>
+
+          <p>
+            We constructed a simple and two-level hierarchical correlation
+            network from the static correlation matrix. Our analysis identified
+            that the network communities stabilises at two. This aligns with the
+            results of bi-clustering performed on the correlation matrix, which
+            finds two compact clusters of highly correlated stocks. Further
+            analysis can produce structural information encodings that may
+            capture non-linear dependencies more effectively.
+          </p>
           <hr />
-          <h2>Conclusions</h2>
+          <p>
+            <span class="image right"
+              ><img
+                src="images/network_GWN_edge.png"
+                alt=""
+                style="width: 90%"
+              />
+              <em> Graph WaveNet Adaptive Graph </em></span
+            >
+
+            This research has addressed gaps in the literature and produced
+            empirical results that assess the applicability of the selected
+            ST-GNNs to JSE-listed share price prediction and the suitability of
+            a correlation matrix proxy for the graph structure.<br />
+            <br />
+            We produced a state-of-the-art representation of the dependencies in
+            the FTSE/JSE Top 40 Index through the GWN adaptive graph. We provide
+            a foundation for future investigation of spatial-temporal graph
+            neural networks and real-world applications of stock market
+            prediction. Future research can evaluate stock market data from
+            different exchanges and other ST-GNN techniques.
+          </p>
         </div>
       </section>
     </div>
@@ -243,7 +411,7 @@
     <footer id="footer" class="wrapper alt">
       <div class="inner">
         <ul class="menu">
-          <li>&copy; Untitled. All rights reserved.</li>
+          <li>&copy; University of Cape Town. All rights reserved.</li>
           <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
       </div>
