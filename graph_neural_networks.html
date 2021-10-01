@@ -1,60 +1,429 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>COGSPMS | Graph Neural Networks</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <title>COGSPMS | Graph Neural Networks</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="title">COGSPMS</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="semantic_bayesian_networks.html"
+              >Semantic Bayesian Networks</a
+            >
+          </li>
+          <li>
+            <a href="graph_neural_networks.html" class="active"
+              >Graph Neural Networks</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-		<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="title">COGSPMS</a>
-				<nav>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="semantic_bayesian_networks.html">Semantic Bayesian Networks</a></li>
-						<li><a href="graph_neural_networks.html" class="active">Graph Neural Networks</a></li>
-					</ul>
-				</nav>
-			</header>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <section id="main" class="wrapper">
+        <div class="inner" style="text-align: left">
+          <h1 class="major">Graph Neural Networks</h1>
+          <h2>Overview</h2>
+          <p>
+            Graph neural networks are a class of deep neural network models that
+            process graphically-encoded multivariate data. Spatial-temporal
+            graph neural networks process data exhibiting both spatial and
+            temporal dependencies.
+          </p>
+          <p>
+            A stock market is a financial market that facilitates the exchange
+            of ownership shares of listed financial securities. Stock markets
+            are dynamic systems that exhibit linear and non-linear dependencies.
+            A correlation matrix provides a mechanism for encoding multivariate
+            linear correlations in a graphical structure.
+          </p>
+          <p>
+            The literature has demonstrated ST-GNN applications to traffic
+            network, energy and medical datasets, but there is a deficit of
+            price prediction studies. Furthermore, existing research assumes
+            prior knowledge of the graph structure and earlier techniques
+            require predefined structure, an unsuitable prerequisite for stock
+            market prediction with latent dependencies.
+          </p>
+          <blockquote>
+            Previously introduced spatial-temporal GNNs are not suitable for
+            modelling multivariate time series due to two distinct factors:
+            unavailability of prior information and the sub-optimality of the
+            predefined graph - Wu et al. (2020)
+          </blockquote>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+          <h3>Research Objectives</h3>
+          <ul>
+            <li>
+              Evaluate the application of three ST-GNNs to Johannesburg Stock
+              Exchange (JSE)-listed share price prediction
+            </li>
+            <li>
+              Test the capability of a correlation matrix to capture market
+              dependencies and encode structural information
+            </li>
+          </ul>
+          <hr />
+          <h2>Methodology</h2>
+          <h3>Models</h3>
+          <p>
+            We evaluated Graph WaveNet (GWN), MTGNN and Spectral-Temporal Graph
+            Neural Network (StemGNN) for stock market price prediction.
+          </p>
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <h4>Graph WaveNet</h4>
+              <p>
+                GWN is a hybrid architecture for spatial-temporal graph
+                modelling. The architecture consists of temporal convolution
+                (Gated TCN) and graph convolution (GCN) modules. The GCN module
+                contains a self-adaptive adjacency matrix that requires no prior
+                information and is learnt using stochastic gradient descent.
+              </p>
+              <p>
+                The TCN module consists of one-dimensional convolutions that
+                capture long-range temporal sequences. The GCN module extracts
+                node-level dependencies using neighbourhood feature aggregation.
+                We evaluated a double transition matrix plus adaptive adjacency
+                matrix using the correlation matrix initialisation against the
+                adaptive-only adjacency matrix.
+              </p>
+            </div>
+            <div class="col-4 col-12-medium">
+              <h4>MTGNN</h4>
+              <p>
+                MTGNN is a hybrid architecture designed with an explicit focus
+                on multivariate time series forecasting. A graph learning layer
+                extracts an adaptive adjacency matrix that requires no prior
+                information. The TCN module captures temporal dependencies. The
+                GCN module extracts node-level dependencies using neighbourhood
+                feature aggregation.
+              </p>
+              <p>
+                MTGNN is trained using a curriculum learning strategy that
+                splits the input into subgroups. Curriculum learning locates
+                optimal local minima by training the algorithm on a single-step
+                forecasting task first and subsequently increasing the
+                prediction horizon. We evaluated a predefined static graph
+                structure against the adaptive-only adjacency matrix.
+              </p>
+            </div>
+            <div class="col-4 col-12-medium">
+              <h4>StemGNN</h4>
+              <p>
+                StemGNN is a hybrid architecture for multivariate time series
+                forecasting that captures inter-series correlations and temporal
+                dependencies in the spectral domain. StemGNN is trained on the
+                spectral representation of the graph using graph signal
+                processing techniques. The Spectral-GCN captures dependencies in
+                the spectral domain.
+              </p>
+              <p>
+                A graph signal is transformed into the spectral domain by a
+                Fourier transform &#8497; and a convolution operator is applied
+                to the spectral signal. A latent correlation layer automatically
+                learns inter-series correlations to extract an adjacency matrix
+                without prior information. For our evaluation, StemGNN was not
+                initialised with the correlation matrix.
+              </p>
+            </div>
+          </div>
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Graph Neural Networks</h1>
-						</div>
-					</section>
+          <div class="table-wrapper">
+            <table class="alt">
+              <thead>
+                <tr>
+                  <th>Architecture</th>
+                  <th>Type</th>
+                  <th>Temporal Component</th>
+                  <th>Spatial Component</th>
+                  <th>Datasets (MAPE%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Graph WaveNet</td>
+                  <td>Spatial-Temporal</td>
+                  <td>Gated Temporal Convolution</td>
+                  <td>Graph Convolution</td>
+                  <td>Traffic (8.23%)</td>
+                </tr>
+                <tr>
+                  <td>MTGNN</td>
+                  <td>Spatial-Temporal</td>
+                  <td>Temporal Convolution</td>
+                  <td>Graph Convolution</td>
+                  <td>
+                    Traffic (5.18%)<br />Electricity<br />Solar<br />Forex
+                  </td>
+                </tr>
+                <tr>
+                  <td>StemGNN</td>
+                  <td>Spectral-Temporal</td>
+                  <td>Spectral-Sequential Cell</td>
+                  <td>Spectral Graph Convolution</td>
+                  <td>
+                    Traffic (6.46%)<br />Electricity (14.77%)<br />Solar
+                    (11.55%)<br />ECG (10.58%)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-			</div>
+          <h3>Experimental Design</h3>
+          <div class="row">
+            <div class="col-6 col-12-medium">
+              <h4>Data</h4>
+              <ul>
+                <li>FTSE/JSE Top 40 Index Daily Close Prices</li>
+                <li>18 May 2009 - 20 July 2021</li>
+                <li>3146 Samples &times; 30 Stocks</li>
+                <li>60:20:20 Train/Validate/Test Split</li>
+              </ul>
+              <h4>Baseline</h4>
+              <ul>
+                <li>Long-term Short Memory (LSTM) Model</li>
+                <li>Last-Value (Naive) Model</li>
+              </ul>
+            </div>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+            <div class="col-6 col-12-medium">
+              <h4>Setup</h4>
+              <ul>
+                <li>
+                  Apple MacBook Pro Intel&reg; Core&trade; i5-8257U CPU @ 1.4
+                  GHz
+                </li>
+                <li>50 Epochs</li>
+                <li>Mean Squared Error Loss Function</li>
+                <li>RMSProp Optimiser</li>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                <li>
+                  <b>Metrics</b>
+                  <ol>
+                    <li>Mean Absolute Percentage Error (MAPE)</li>
+                    <li>Mean Absolute Error (MAE)</li>
+                    <li>Root Mean Squared Error (RMSE)</li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <h2>Results &amp; Conclusions</h2>
+          <h3>Single-Step Forecasting</h3>
+          <p>
+            We tested the performance of the ST-GNNs and baseline LSTM and Naive
+            models on a single-step forecasting task for 30-, 60- and 120-day
+            window sizes. Regular trading days for the Johannesburg Stock
+            Exchange are Monday through Friday, and thus the selected window
+            sizes correspond to 6, 12 and 24 trading weeks.
+          </p>
+          <p>
+            The results show that <b>MTGNN</b> outperforms both GWN and StemGNN
+            by a substantial margin for all tested input window sizes. The
+            performance variation between MTGNN and GWN and StemGNN increases as
+            the window size is increased, as MTGNN does not demonstrate similar
+            levels of performance degradation. Further, the results demonstrate
+            that predictive performance of the GNN and baseline models decreases
+            as the window size is increased.
+          </p>
+          <p>
+            The results show that <b>MTGNN</b> outperforms both GWN and StemGNN
+            by a substantial margin for all tested input window sizes. The
+            performance variation between MTGNN and GWN and StemGNN increases as
+            the window size is increased, as MTGNN does not demonstrate similar
+            levels of performance degradation. Further, the results demonstrate
+            that predictive performance of the GNN and baseline models decreases
+            as the window size is increased.
+          </p>
 
-	</body>
+          <h3>Multi-Step Forecasting</h3>
+          <p>
+            We tested the performance of ST-GNNs and baseline LSTM on a
+            multi-step forecasting task for 20-, 40- and 60-day window sizes and
+            5-, 10- and 20-day prediction horizons.
+          </p>
+
+          <p>
+            Comparing MAPE, <b>GWN</b> significantly outperforms MTGNN, StemGNN
+            and the LSTM for the tested hyperparameters. Whilst the LSTM obtains
+            consistently lower RMSE scores, this can be attributed to the
+            independently-generated model predictions, which potentially reduces
+            error propagation.<br />
+          </p>
+          <p>
+            MTGNN is the unexpected laggard for the evaluated multi-step
+            forecasting tasks, demonstrating inferior performance relative to
+            the baseline. However, recall that the LSTM is incapable of
+            multi-node forecasting.
+          </p>
+
+          <p>
+            The results show a general decline in predictive performance as the
+            horizon length is increased. There is no clear relation between
+            window size and prediction error.
+          </p>
+
+          <p>
+            Our results demonstrate that an ST-GNN can produce suitable accuracy
+            on the price prediction problem. For both tasks, a ST-GNN achieves a
+            considerable performance improvement over the baseline LSTM. This
+            supports modelling both temporal and latent spatial dependencies in
+            stock market data.
+          </p>
+
+          <h3>Correlation Matrix Multi-Step Forecasting</h3>
+          <p>
+            <span class="image right"
+              ><img src="images/JSE_corr.png" alt="" style="width: 80%" />
+              <em>FTSE/JSE Top 40 Index Correlation Matrix</em>
+            </span>
+            We tested the performance of GWN and MTGNN on a multi-step
+            forecasting task for 20- and 40- window sizes, 5- and 10-day
+            horizons with the inclusion of the correlation matrix to initialise
+            the GWN and MTGNN adjacency matrices.
+          </p>
+          <p>
+            The results demonstrate that the provision of structural information
+            proxied by a correlation matrix does not improve predictive
+            performance. For GWN, the forward-backward-adaptive adjacency matrix
+            configuration marginally outperforms a 20-day input window only.
+          </p>
+
+          <p>
+            The provision of prior information results in a minimal improvement
+            in MTGNN's predictive performance for a 20-day window. However,
+            performance similarly degrades as the window size is doubled.
+          </p>
+
+          <p>
+            Our results show that a correlation matrix is a sub-optimal
+            mechanism encode prior structural information. The prior inclusion
+            of multivariate correlations produced a negligible impact on
+            predictive accuracy. We conclude that linear correlations do not
+            caputre complex latent dependencies in the stock market.
+          </p>
+
+          <h3>Multivariate Correlation Analysis</h3>
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/bicluster_n_2.png" alt="" style="width: 80%"
+              /></span>
+              <em>Bi-clustered Correlation Matrix</em>
+            </div>
+
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/GWN_adaptive.png" alt="" style="width: 80%"
+              /></span>
+              <em>GWN Adaptive Adjacency Matrix</em>
+            </div>
+
+            <div class="col-4 col-12-medium">
+              <span class="image"
+                ><img src="images/MTGNN_adaptive.png" alt="" style="width: 80%"
+              /></span>
+              <em>MTGNN Adaptive Adjacency Matrix</em>
+            </div>
+          </div>
+          <br />
+          <p>
+            GWN extract a graph structure that is highly dissimilar to that
+            represented by the correlation matrix. <br />Comparing the adaptive
+            adjacency matrices, GWN extracts a sparse graphical structure, in
+            contrast to the dense graph learnt by MTGNN. <br />There are no
+            identifiable commonalities between the two matrices, nor is one
+            matrix a more fine-grained dependency representation.
+          </p>
+
+          <p>
+            <span class="image right"
+              ><img src="images/network.png" alt="" style="width: 90%" />
+              <em> Simple Correlation Network </em></span
+            >
+            GWN's share price forecasting performance suggests that the model
+            can accurately extract spatial dependencies. Therefore, we can infer
+            that fewer complex dependencies exist, given that the sparse graph
+            is an approximate representation of market structure.
+          </p>
+
+          <p>
+            We constructed a simple and two-level hierarchical correlation
+            network from the static correlation matrix. Our analysis identified
+            that the network communities stabilises at two. This aligns with the
+            results of bi-clustering performed on the correlation matrix, which
+            finds two compact clusters of highly correlated stocks. Further
+            analysis can produce structural information encodings that may
+            capture non-linear dependencies more effectively.
+          </p>
+          <hr />
+          <p>
+            <span class="image right"
+              ><img
+                src="images/network_GWN_edge.png"
+                alt=""
+                style="width: 90%"
+              />
+              <em> Graph WaveNet Adaptive Graph </em></span
+            >
+
+            This research has addressed gaps in the literature and produced
+            empirical results that assess the applicability of the selected
+            ST-GNNs to JSE-listed share price prediction and the suitability of
+            a correlation matrix proxy for the graph structure.<br />
+            <br />
+            We produced a state-of-the-art representation of the dependencies in
+            the FTSE/JSE Top 40 Index through the GWN adaptive graph. We provide
+            a foundation for future investigation of spatial-temporal graph
+            neural networks and real-world applications of stock market
+            prediction. Future research can evaluate stock market data from
+            different exchanges and other ST-GNN techniques.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; University of Cape Town. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
