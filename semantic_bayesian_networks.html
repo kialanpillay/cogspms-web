@@ -51,6 +51,8 @@
             characteristics for inclusion in a portfolio. Portfolio selection is
             the successive phase of portfolio management and determines the
             optimal allocation of the set of identified shares in a portfolio.
+          </p>
+          <p>
             The stock market is a dynamic, non-linear and chaotic system. This
             requires investment professionals to assess and evaluate multiple
             factors, including contradictory information when deciding whether a
@@ -69,438 +71,615 @@
             useful in the financial domain as it represents uncertain, ambiguous
             or incomplete knowledge.
           </p>
-          <h3> Aims</h3>
-          <p>
-            In this research, we will  empirically evaluate the
-            <em>INVEST</em> system with varying conditions and test several
-            system extensions. 
-            <ol>
-              <li>
-                We will evaluate the base
-                <em>INVEST</em> system as designed by Drake.
-              </li>
-              <li>
-                We will
-            conduct an ablation study to assess the relative importance of each
-            component in the overall framework.
-              </li>
-              <li>
-                We will extend the
-            system to include systematic risk within the BN topology.
-              </li>
-              <li>
-                We will test the stability and robustness of the
-            <em>INVEST</em> system through a noise simulation component.
-              </li>
-              <li>
-                We will integrate a deep learning predictive component into
-                the <em>INVEST</em> system.
-              </li>
-            </ol>
-          </p>
-          <hr>
+          <h3>Research Objectives</h3>
+          In this research, we evaluated the
+          <em>INVEST</em> system with varying conditions and test several system
+          extensions.
+          <ol>
+            <li>
+              Evaluate the base
+              <em>INVEST</em> system as designed by Drake.
+            </li>
+            <li>
+              Conduct an ablation study to assess the relative importance of
+              each component in the overall framework.
+            </li>
+            <li>
+              Extend the system to include systematic risk within the BN
+              topology.
+            </li>
+            <li>
+              Test the stability and robustness of the
+              <em>INVEST</em> system through a noise simulation component.
+            </li>
+            <li>
+              Integrate a deep learning predictive component into the
+              <em>INVEST</em> system.
+            </li>
+          </ol>
+          <hr />
 
           <h2>System Design</h2>
           <p>
             <span class="image left"
-              ><img src="images/Invest_Package.png" alt="" /></span
-            >
-                 <br /> The system is composed of six submodules within the <em>INVEST</em>
-            module. The <em>INVEST</em> module contains a <em>Store</em> class, which represents the central point of the system. Responsibilities include invoking the functionality of the 6 submodules and running different experiments dependent on user input.  The package diagram on the left depicts the dependencies
+              ><img
+                src="images/Invest_Package.png"
+                alt=""
+                style="border-radius: 0%"
+            /></span>
+            <br />
+            The system is composed of six submodules within the
+            <em>INVEST</em> module. The <em>INVEST</em> module contains a
+            <code>Store</code> class, which represents the central point of the
+            system. Responsibilities include invoking the functionality of the 6
+            submodules and running different experiments dependent on user
+            input. The package diagram on the left depicts the dependencies
             between modules and submodules.
-            <br /> 
-            <br /> 
-            <section  class="wrapper style3 fade-up">
-              <div class="inner">
-                <h2>Submodules</h2>
-                <div class="features">
-                  <section>
-                    <span class="icon major">1</span>
-                    <h3><em>Preprocessing: </em></h3>
-                    <p>This submodule contains data loading and preprocessing utilities. Furthermore, this component has been extended to include a noise simulation component to facilitate system stress tests. </p>
-            
-                  </section>
-                  <section>
-                    <span class="icon major">2</span>
-                    <h3><em>Calculator: </em></h3>
-                    <p>This submodule performs the financial calculations of the system for each company, using financial ratios computation and thresholding logic. Financial ratios produce a numerical output, which the threshold component subsequently converts to discrete states required as input for the BNs.</p>
-                
-                  </section>
-                  <section>
-                    <span class="icon major">3</span>
-                    <h3><em>Networks: </em> </h3>
-                    <p><em>Insaaf Dhansay & Kialan Pillay</em><br/>An Intelligent System for Automated Share Evaluation using Graph Neural Networks and Semantic Bayesian Networks</p>
-                
-                  </section>
-                  <section>
-                    <span class="icon major">4</span>
-                    <h3><em>Evaluation: </em></h3>
-                    <p>The <em>INVEST</em> system is evaluated through back-testing using historical data for shares listed on the JSE. This submodule contains the validation procedures and depends on a Metrics submodule that houses risk and risk-adjusted return metrics. </p>
-                   
-                  </section>
-                  <section>
-                    <span class="icon major">5</span>
-                    <h3><em>Metrics: </em></h3>
-                    <p> This submodule contains the logic to determine portfolio performance, which is calculated using risk and risk-adjusted return metrics.</p>
-                
-                  </section>
-                  <section>
-                    <span class="icon major">6</span>
-                    <h3><em>Prediction: </em></h3>
-                    <p>This component includes logic to facilitate the integration of a Graph Neural Network (GNN) with the BNs. Prediction is performed based on the close price data of each share.</p>
-                 
-                  </section>
+          </p>
+          <br />
+          <section class="wrapper style3 fade-up">
+            <div class="inner">
+              <h2>Submodules</h2>
+              <div class="features">
+                <section>
+                  <span class="icon major">1</span>
+                  <h3>Preprocessing</h3>
+                  <p>
+                    This submodule contains data loading and preprocessing
+                    utilities. Furthermore, this component has been extended to
+                    include a noise simulation component to facilitate system
+                    stress tests.
+                  </p>
+                </section>
+                <section>
+                  <span class="icon major">2</span>
+                  <h3>Calculator</h3>
+                  <p>
+                    This submodule performs the financial calculations of the
+                    system for each company, using financial ratios computation
+                    and thresholding logic. Financial ratios produce a numerical
+                    output, which the threshold component subsequently converts
+                    to discrete states required as input for the BNs.
+                  </p>
+                </section>
+                <section>
+                  <span class="icon major">3</span>
+                  <h3>Networks</h3>
+                  <p>
+                    <em>Insaaf Dhansay & Kialan Pillay</em><br />An Intelligent
+                    System for Automated Share Evaluation using Graph Neural
+                    Networks and Semantic Bayesian Networks
+                  </p>
+                </section>
+                <section>
+                  <span class="icon major">4</span>
+                  <h3>Evaluation</h3>
+                  <p>
+                    The <em>INVEST</em> system is evaluated through back-testing
+                    using historical data for shares listed on the JSE. This
+                    submodule contains the validation procedures and depends on
+                    a Metrics submodule that houses risk and risk-adjusted
+                    return metrics.
+                  </p>
+                </section>
+                <section>
+                  <span class="icon major">5</span>
+                  <h3>Metrics</h3>
+                  <p>
+                    This submodule contains the logic to determine portfolio
+                    performance, which is calculated using risk and
+                    risk-adjusted return metrics.
+                  </p>
+                </section>
+                <section>
+                  <span class="icon major">6</span>
+                  <h3>Prediction</h3>
+                  <p>
+                    This component includes logic to facilitate the integration
+                    of a Graph Neural Network (GNN) with the BNs. Prediction is
+                    performed based on the close price data of each share.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section>
+            <h2>Bayesian Networks</h2>
+            <div class="box alt">
+              <div class="row gtr-uniform">
+                <div class="col-12">
+                  <span class="image fit"
+                    ><img src="images/BN-Combo2.png" alt=""
+                  /></span>
                 </div>
               </div>
-            </section>
+            </div>
+            <p>
+              The Value Evaluation network is used to evaluate a share relative
+              to price and determines whether a share is <em>Cheap</em>,
+              <em>FairValue</em> or <em>Expensive</em>. The Quality Evaluation
+              network is used to evaluate the quality of a share and determines
+              whether a share is of a <em>Low</em>, <em>Medium</em> or
+              <em>High</em> quality.
+            </p>
+            <p>
+              Finally, the Investment Recommendation network incorporates the
+              output of the Quality and Value BNs to reflect the decision
+              process performed by investors: evaluating whether the price of a
+              share is reasonable and the quality of the share, thus providing
+              an investment recommendation for a specific share. This network
+              produces a final <em>Yes</em> or <em>No</em> decision pertaining
+              to system's assessment of the share's suitability for investment.
+            </p>
+          </section>
+          <hr />
+          <h2>Experimental Design</h2>
+          <h3>Data</h3>
+          <p>
+            The dataset used consists of price and fundamental data for 36
+            shares listed on the JSE between 2012 - 2018: 17 shares from the
+            General Industrials sector and 19 shares from the Consumer Services
+            sector.
           </p>
-          <hr>
-		  <h2> Bayesian Networks</h2>
-		  <section>
-			<div class="box alt">
-				<div class="row gtr-uniform">
-	
-          <div class="col-12"><span class="image fit"><img src="images/BN-Combo2.png" alt="" /></span></div>
-				</div>
-			</div>	
-			<p> The Value Evaluation network is used to evaluate a share relative to price and determines whether a share is <em>Cheap</em>, <em>FairValue</em> or  <em>Expensive</em>. The Quality Evaluation network is used to evaluate the quality of a share and determines whether a share is of a <em>Low</em>, <em>Medium</em> or <em>High</em>  quality. Finally,  The Investment Recommendation network incorporates the output of the Quality and Value BNs to reflect the decision process performed by investors: evaluating whether the price of a share is reasonable and the quality of the share, thus providing an investment recommendation for a specific share. This network produces a final <em>Yes</em> or <em>No</em> decision pertaining to system's assessment of the share's suitability for investment. </p>
-		</section>
-		<h2>Experimental Design</h2>
-		<p>  <ul>
-      <li>
-        <em> Dataset: </em> The dataset used consists of price and fundamental data for 36 shares listed on the JSE between 2012 - 2018: 17 shares from the General Industrials sector and 19 shares from the Consumer Services sector.
-      </li>
-      <li> <em> Benchmark: </em> The JSE All-Share Index, General Industrials (JGIND) and Consumer Services (JCSEV) are the selected benchmark indices to validate the share evaluation recommendations for the respective sectors. The benchmark dataset includes FTSE/JSE General Industrials index data, FTSE/JSE Consumer Services index data, as well as the FTSE/JSE All Share index data.  </li>
-      <li> <em>Evaluation: </em>Return and Risk-Adjusted Return metrics are used to evaluate the performance of the semantic BNs for share evaluation. These metrics include Annual Return , Compound Return , Average Annual Return, Treynor Ratio and  Sharpe Ratio. This selection is informed by our requirements of reproducibility \cite{drake2020invest} and to support robust evaluation of other BN topologies. The system is evaluated over one-year and one-month holding periods. </li>
-      <li> <em>Setup: </em>Each experiment is conducted on an Apple MacBook Pro with an Intel(R) Core(TM) i5 CPU @ 2.4 GHz. Each experiment was run with the default margin of safety (threshold) of 0.1 and a beta of 0.2 if not specified otherwise. </li>
-  </ul>
- 
-		</p>
-    <hr>
+          <h3>Benchmark</h3>
+          <p>
+            The JSE All-Share Index, General Industrials (JGIND) and Consumer
+            Services (JCSEV) are the selected benchmark indices to validate the
+            share evaluation recommendations for the respective sectors. The
+            benchmark dataset includes a composite of FTSE/JSE General
+            Industrials, FTSE/JSE Consumer Services and FTSE/JSE All-Share
+            indices data.
+          </p>
+          <h3>Setup</h3>
+          <p>
+            Each experiment is conducted on an Apple MacBook Pro with an
+            Intel&reg; Core&trade; i5 CPU @ 2.4 GHz. Each experiment was run
+            with the default threshold = 0.1 and a &beta; = 0.2 if not specified
+            otherwise.
+          </p>
+          <h3>Evaluation</h3>
+          <p>
+            Return and Risk-Adjusted Return metrics are used to evaluate the
+            performance of the semantic BNs for share evaluation. These metrics
+            include Annual Return, Compound Return, Average Annual Return,
+            Treynor Ratio and Sharpe Ratio. This selection is informed by our
+            requirements of reproducibility and to support robust evaluation of
+            other BN topologies. The system is evaluated over one-year and
+            one-month holding periods.
+          </p>
+          <hr />
           <h2>Implementation</h2>
-         
-		  <span class="image left"
-              ><img src="images/console.png" alt="" /></span
-              
+          <p>
+            <span class="image left"
+              ><img
+                src="images/console.png"
+                alt=""
+                style="width: 90%"
+                ; /></span
             >Python, a general-purpose programming language is the selected
-            development platform for the system. The <em>PyAgrum</em> library
-            is used to create and manage Bayesian networks, given its ability to
-            perform efficient computations. Furthermore, a visualization web
-            console was developed using a <em>Flask</em> server and
-            <em> React</em>. This provides the user an opportunity to select
-            different experiments, and obtain a graphical view of the results in
-            comparison to the relative benchmark.
-            
-            <br>
-            <br>
-            <br>
-            <br>
-            <br> 
-            <br>
-          
-            <br>
-        <hr>
-			<h2>Results</h2>
-      <h3>Base <em>INVEST</em></h3>
-      <p>The experiment is conducted to validate the INVEST system results.
-        This experiment was run with 𝛽 = {0.2, 0.6, 1.0, 1.4, 1.6} for years 2015 to 2018 and compared to the benchmarks for the respective sectors. </p>
-    <div class="table-wrapper">
-      <table class="alt">
-        <caption>Performance comparison of <em>INVEST</em> investment portfolio and benchmark for 2015 - 2018 (𝛽 = 0.2)</caption>
-   
-        <thead>  
+            development platform for the system. The
+            <code>PyAgrum</code> library is used to create and manage Bayesian
+            networks, given its ability to perform efficient computations.
 
-          <tr>
-            <th>Measure</th>
-            <th>IP.JGIND</th>
-            <th>JGIND</th>
-            <th>IP.JCSEV</th>
-            <th>JCSEV</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CR</td>
-            <td>13.33%</td>
-            <td>6.96%</td>
-            <td>37.55%</td>
-            <td>0.51%</td>
-          </tr>
-          <tr>
-            <td>AAR</td>
-            <td>12.01%</td>
-            <td>7.32%</td>
-            <td>11.13%</td>
-            <td>0.83%</td>
-          </tr>
-          <tr>
-            <td>TR</td>
-            <td> 0.37</td>
-            <td>0.09</td>
-            <td>0.82</td>
-            <td>0.01</td>
-          </tr>
-          <tr>
-            <td>SR</td>
-            <td>0.25</td>
-            <td>0.35</td>
-            <td>2.58</td>
-            <td>0.03</td>
-          </tr>
-        </tbody>
-        <tfoot>
-        </tfoot>
-      </table>
-    </div>
-      <p><span class="image left"><img src="images/base_02.png" alt="" /></span>				
-        For Beta = 0.2, the experimental results demonstrate that the annual returns significantly outperformed the General Industrials benchmark in 2016 and the Consumer Services benchmark in 2015 and 2016 respectively. 
-        This experiment was also run for Beta = 0.6 and Beta = 1, where it performed slightly worse providing tentative evidence towards a more conservative investment approach where the share has less systematic risk than the market.  However, we note that it was still able to outperform the benchmark in the majority of the conducted experiments.  		
-         <br>
-         Based on our empirical evaluation of INVEST, we conclude that the base INVEST system demonstrates consistent excess returns for the majority of the General Industrials and Consumer services sector with lower Beta values,  providing evidence for a more conservative investment approach.    
-        </p>
-        <br>
+            <br />
+            <br />
 
+            We also developed a a visualization web console using a
+            <code>Flask</code> server and <code> ReactJS</code> interface. This
+            provides the user an opportunity to select different experiments and
+            obtain a graphical view of the results in comparison to the relative
+            benchmark.
+          </p>
+          <br />
 
+          <hr />
+          <h2>Results</h2>
+          <h3>Base <em>INVEST</em></h3>
+          <p>
+            The experiment is conducted to validate the INVEST system results.
+            This experiment was run with &beta; = {0.2, 0.6, 1.0, 1.4, 1.6} for
+            years 2015 to 2018 and compared to the benchmarks for the respective
+            sectors.
+          </p>
+          <div class="table-wrapper">
+            <table class="alt">
+              <caption>
+                Performance comparison of
+                <em>INVEST</em>
+                investment portfolio and benchmark for 2015 - 2018 (&beta; =
+                0.2)
+              </caption>
 
-      <h3>Extended <em>INVEST</em></h3>
-      <p><span class="image left"><img src="images/extendedQE.drawio.png" alt="" /></span>				
-        The extended Quality Bayesian Network depicts the systematic risk extension (modelled in pink), which was included by modifying the topology of the Quality Evaluation BN to model risk within the system.
-        This experiment was conducted for 𝛽 = {0.2, 1.0} for years 2015 to 2018, and was compared to the base INVEST system.  		 
-        </p>
-        <br>
-        <br>
-        <p><span class="image left"><img src="images/extended02.png" alt="" /></span>For Beta = 0.2, we note that the extended system outperformed the baseline results for General Industrials, however, this was not the case for Consumer Services. For 𝛽 = 1, performance degraded for General Industrials, however, near parity was achieved relative to the base system. Furthermore, we note that the results did not improve for Consumer Services. </p>
-        <p><span class="image right"><img src="images/extended1.png" alt="" /></span>With the inclusion of systematic risk in the quality network, we note that with a lower 𝛽 value the system produced improved results. However, as 𝛽 increased to 1, it had a marginal impact on performance. 
-          <br>
-          We conclude that there is tentative evidence to include systematic risk in the network. 
-        </p>
-        <br>
-      <h3>Ablation Study</h3>
-      <p>Each network is tested in isolation to determine its relative importance within the overall framework.</p>
-      <div class="table-wrapper">
-        <table class="alt">
-          <thead> <caption>Performance comparison of Value Evaluation network investment portfolio and <em>INVEST</em> for 2015 - 2018 (𝛽 = 0.2)</caption>
-            <tr>
-              <th>Measure</th>
-              <th>IP.JGIND.V</th>
-              <th>IP.JGIND</th>
-              <th>IP.JCSEV.V</th>
-              <th>IP.JCSEV</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CR</td>
-              <td>16.05%</td>
-              <td>13.33%</td>
-              <td>43.19%</td>
-              <td>37.55%</td>
-            </tr>
-            <tr>
-              <td>AAR</td>
-              <td>5.13%</td>
-              <td>12.01%</td>
-              <td>11.61%</td>
-              <td>11.13%</td>
-            </tr>
-            <tr>
-              <td>TR</td>
-              <td> 0.5</td>
-              <td>0.37</td>
-              <td>0.97</td>
-              <td>0.82</td>
-            </tr>
-            <tr>
-              <td>SR</td>
-              <td>0.33</td>
-              <td>0.25</td>
-              <td>2.95</td>
-              <td>2.58</td>
-            </tr>
-          </tbody>
-          <tfoot>
-          </tfoot>
-        </table>
-      </div>
-      <div class="table-wrapper">
-        <table class="alt">
-          <thead>  <caption>Performance comparison of Quality Evaluation network investment portfolio and <em>INVEST</em> for 2015 - 2018 (𝛽 = 0.2)</caption>
-            <tr>
-              <th>Measure</th>
-              <th>IP.JGIND.Q</th>
-              <th>IP.JGIND</th>
-              <th>IP.JCSEV.Q</th>
-              <th>IP.JCSEV</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CR</td>
-              <td>-53.24%</td>
-              <td>13.33%</td>
-              <td>19.80%</td>
-              <td>37.55%</td>
-            </tr>
-            <tr>
-              <td>AAR</td>
-              <td>-8.48%</td>
-              <td>12.01%</td>
-              <td>2.95%</td>
-              <td>11.13%</td>
-            </tr>
-            <tr>
-              <td>TR</td>
-              <td> -1.45</td>
-              <td>0.37</td>
-              <td>0.49</td>
-              <td>0.82</td>
-            </tr>
-            <tr>
-              <td>SR</td>
-              <td>-3.29</td>
-              <td>0.25</td>
-              <td>1.7</td>
-              <td>2.58</td>
-            </tr>
-          </tbody>
-          <tfoot>
-          </tfoot>
-        </table>
-      </div>
-      <p>This experiment yielded unexpected results for 𝛽 = 0.2 . Considering only the Value BN , we observe that the resultant investment portfolio outperformed the INVEST baseline results across all metrics for Consumer Services, and over all metrics for General Industrials excluding AAR..  We observe a significant decrease in performance when 𝛽 = 1 . Excluding the Value BN and testing only the Quality BN for 𝛽 = {0.2, 1.0} resulted in a stark decrease in performance . In both configurations, the base INVEST system outperformed the recommended investment portfolio. 				
-        <br>
-        We can conclude that the Value network is a relatively important component of the INVEST system in comparison to the Quality network.         
-      </p>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>IP.JGIND</th>
+                  <th>JGIND</th>
+                  <th>IP.JCSEV</th>
+                  <th>JCSEV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CR</td>
+                  <td>13.33%</td>
+                  <td>6.96%</td>
+                  <td>37.55%</td>
+                  <td>0.51%</td>
+                </tr>
+                <tr>
+                  <td>AAR</td>
+                  <td>12.01%</td>
+                  <td>7.32%</td>
+                  <td>11.13%</td>
+                  <td>0.83%</td>
+                </tr>
+                <tr>
+                  <td>TR</td>
+                  <td>0.37</td>
+                  <td>0.09</td>
+                  <td>0.82</td>
+                  <td>0.01</td>
+                </tr>
+                <tr>
+                  <td>SR</td>
+                  <td>0.25</td>
+                  <td>0.35</td>
+                  <td>2.58</td>
+                  <td>0.03</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <span class="image left"
+              ><img src="images/base_02.png" alt=""
+            /></span>
+            For &beta; = 0.2, the experimental results demonstrate that the
+            annual returns significantly outperformed the General Industrials
+            benchmark in 2016 and the Consumer Services benchmark in 2015 and
+            2016 respectively. This experiment was also run for &beta; = 0.6 and
+            &beta; = 1, where it performed slightly worse providing tentative
+            evidence towards a more conservative investment approach where the
+            share has less systematic risk than the market. However, we note
+            that it was still able to outperform the benchmark in the majority
+            of the conducted experiments.
+          </p>
+          <p>
+            Based on our empirical evaluation of INVEST, we conclude that the
+            base INVEST system demonstrates consistent excess returns for the
+            majority of the General Industrials and Consumer services sector
+            with lower &beta; values, providing evidence for a more conservative
+            investment approach.
+          </p>
 
+          <h3>Extended <em>INVEST</em></h3>
+          <p>
+            <span class="image left"
+              ><img src="images/extension.png" alt=""
+            /></span>
+            The extended Quality Bayesian Network depicts the systematic risk
+            extension (modelled in pink), which was included by modifying the
+            topology of the Quality Evaluation BN to model risk within the
+            system. This experiment was conducted for &beta; = {0.2, 1.0} for
+            years 2015 to 2018, and was compared to the base INVEST system.
+          </p>
+          <br />
+          <br />
+          <p>
+            <span class="image left"
+              ><img src="images/extended02.png" alt="" /></span
+            >For &beta; = 0.2, we note that the extended system outperformed the
+            baseline results for General Industrials, however, this was not the
+            case for Consumer Services. For &beta; = 1, performance degraded for
+            General Industrials, however, near parity was achieved relative to
+            the base system. Furthermore, we note that the results did not
+            improve for Consumer Services.
+          </p>
+          <p>
+            <span class="image right"
+              ><img src="images/extended1.png" alt="" /></span
+            >With the inclusion of systematic risk in the quality network, we
+            note that with a lower &beta; value the system produced improved
+            results. However, as &beta; increased to 1, it had a marginal impact
+            on performance.
+            <br />
+            We conclude that there is tentative evidence to include systematic
+            risk in the network.
+          </p>
+          <br />
+          <h3>Ablation Study</h3>
+          <p>
+            Each network is tested in isolation to determine its relative
+            importance within the overall framework.
+          </p>
+          <div class="table-wrapper">
+            <table class="alt">
+              <caption>
+                Performance comparison of Value Evaluation network investment
+                portfolio and
+                <em>INVEST</em>
+                for 2015 - 2018 (&beta; = 0.2)
+              </caption>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>IP.JGIND.V</th>
+                  <th>IP.JGIND</th>
+                  <th>IP.JCSEV.V</th>
+                  <th>IP.JCSEV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CR</td>
+                  <td>16.05%</td>
+                  <td>13.33%</td>
+                  <td>43.19%</td>
+                  <td>37.55%</td>
+                </tr>
+                <tr>
+                  <td>AAR</td>
+                  <td>5.13%</td>
+                  <td>12.01%</td>
+                  <td>11.61%</td>
+                  <td>11.13%</td>
+                </tr>
+                <tr>
+                  <td>TR</td>
+                  <td>0.5</td>
+                  <td>0.37</td>
+                  <td>0.97</td>
+                  <td>0.82</td>
+                </tr>
+                <tr>
+                  <td>SR</td>
+                  <td>0.33</td>
+                  <td>0.25</td>
+                  <td>2.95</td>
+                  <td>2.58</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrapper">
+            <table class="alt">
+              <caption>
+                Performance comparison of Quality Evaluation network investment
+                portfolio and
+                <em>INVEST</em>
+                for 2015 - 2018 (&beta; = 0.2)
+              </caption>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>IP.JGIND.Q</th>
+                  <th>IP.JGIND</th>
+                  <th>IP.JCSEV.Q</th>
+                  <th>IP.JCSEV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CR</td>
+                  <td>-53.24%</td>
+                  <td>13.33%</td>
+                  <td>19.80%</td>
+                  <td>37.55%</td>
+                </tr>
+                <tr>
+                  <td>AAR</td>
+                  <td>-8.48%</td>
+                  <td>12.01%</td>
+                  <td>2.95%</td>
+                  <td>11.13%</td>
+                </tr>
+                <tr>
+                  <td>TR</td>
+                  <td>-1.45</td>
+                  <td>0.37</td>
+                  <td>0.49</td>
+                  <td>0.82</td>
+                </tr>
+                <tr>
+                  <td>SR</td>
+                  <td>-3.29</td>
+                  <td>0.25</td>
+                  <td>1.7</td>
+                  <td>2.58</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            This experiment yielded unexpected results for &beta; = 0.2 .
+            Considering only the Value BN, we observe that the resultant
+            investment portfolio outperformed the INVEST baseline results across
+            all metrics for Consumer Services, and over all metrics for General
+            Industrials excluding AAR. We observe a significant decrease in
+            performance when &beta; = 1.
+          </p>
+          <p>
+            Excluding the Value BN and testing only the Quality BN for &beta; =
+            {0.2, 1.0} resulted in a stark decrease in performance . In both
+            configurations, the base INVEST system outperformed the recommended
+            investment portfolio.
+            <br />
+            We can conclude that the Value network is a relatively important
+            component of the INVEST system in comparison to the Quality network.
+          </p>
 
+          <h3>Hybrid Integration</h3>
+          <p>
+            A hybrid experiment was performed by integrating a graph neural
+            network model into the system. To perform the hybrid experiment, the
+            FutureSharePerformance node was classified as <em>Positive</em>,
+            <em>Negative</em> or <em>Stagnant</em> using inference on price
+            movement from the GNN. The experiment was conducted for &beta; =
+            {0.2, 1} for one-year and one-month holding periods and compared to
+            the base INVEST system results.
+          </p>
+          <div class="table-wrapper">
+            <table class="alt">
+              <caption>
+                Performance comparison of
+                <em>INVEST</em>
+                + GNN and
+                <em>INVEST</em>
+                investment portfolio over a one year holding period (&beta; = 1)
+              </caption>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>IP.JGIND.G</th>
+                  <th>IP.JGIND</th>
+                  <th>IP.JCSEV.G</th>
+                  <th>IP.JCSEV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CR</td>
+                  <td>3.75%</td>
+                  <td>2.53%</td>
+                  <td>6.82%</td>
+                  <td>9.49%</td>
+                </tr>
+                <tr>
+                  <td>AAR</td>
+                  <td>21.49%</td>
+                  <td>20.80%</td>
+                  <td>4.94%</td>
+                  <td>6.33%</td>
+                </tr>
+                <tr>
+                  <td>TR</td>
+                  <td>0.13</td>
+                  <td>0.10</td>
+                  <td>0.18</td>
+                  <td>0.25</td>
+                </tr>
+                <tr>
+                  <td>SR</td>
+                  <td>0.09</td>
+                  <td>0.06</td>
+                  <td>0.30</td>
+                  <td>0.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrapper">
+            <table class="alt">
+              <caption>
+                Performance comparison of
+                <em>INVEST</em>
+                + GNN and
+                <em>INVEST</em>
+                investment portfolio over a one month holding period(&beta; =
+                0.2)
+              </caption>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>IP.JGIND.G</th>
+                  <th>IP.JGIND</th>
+                  <th>IP.JCSEV.G</th>
+                  <th>IP.JCSEV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CR</td>
+                  <td>0.79%</td>
+                  <td>-0.48%</td>
+                  <td>1.29%</td>
+                  <td>1.48%</td>
+                </tr>
+                <tr>
+                  <td>AAR</td>
+                  <td>0.44%</td>
+                  <td>-1.56%</td>
+                  <td>1.07%</td>
+                  <td>1.08%</td>
+                </tr>
+                <tr>
+                  <td>TR</td>
+                  <td>0.02</td>
+                  <td>-0.01</td>
+                  <td>0.02</td>
+                  <td>0.03</td>
+                </tr>
+                <tr>
+                  <td>SR</td>
+                  <td>0.09</td>
+                  <td>-0.18</td>
+                  <td>0.34</td>
+                  <td>0.40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            For &beta; = 0.2 for both holding periods, the same results were
+            obtained given that an identical set of shares were selected.
+            However, when &beta; = 1 for a one-year holding period , the results
+            demonstrate no performance improvement for Consumer Services in
+            comparison to the base system results. We note that for the General
+            Industrials sector, the hybrid system outperforms the baseline
+            results measured across all metrics.
+          </p>
+          <p>
+            We posit that the results are a consequence of the specified
+            prediction window. The GNN model outputs predicted values for the
+            next 10 days, while the investment portfolio holding period is one
+            year. When &beta; = 1 for the one-month holding period, we see an
+            improvement in performance . The results demonstrate a drastic
+            improvement relative to the one-year holding period for General
+            Industrials.
+          </p>
 
+          <p>
+            We conclude that a GNN, or more broadly, Machine Learning model
+            integration could be valuable for short-term holding periods, such
+            that the period is temporally consistent with the prediction horizon
+            of the model.
+          </p>
 
-      <h3>Hybrid Integration</h3>
-      <p>
-
-A hybrid experiment was performed by integrating a graph neural network model into the system. To perform the hybrid experiment, the FutureSharePerformance node was classified as "Positive", "Negative" or "Stagnant" [3] using inference on price movement from the GNN. 
-
-The experiment was conducted for 𝛽 = {0.2, 1} for one-year and one-month holding periods and compared to the baseline INVEST system results. 
-      </p>
-      <div class="table-wrapper">
-        <table class="alt">
-          <thead> <caption>Performance comparison of <em>INVEST</em> + GNN and <em>INVEST</em> investment portfolio over a one year holding period (𝛽 = 1)</caption>
-            <tr>
-              <th>Measure</th>
-              <th>IP.JGIND.G</th>
-              <th>IP.JGIND</th>
-              <th>IP.JCSEV.G</th>
-              <th>IP.JCSEV</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CR</td>
-              <td>3.75%</td>
-              <td>2.53%</td>
-              <td>6.82%</td>
-              <td>9.49%</td>
-            </tr>
-            <tr>
-              <td>AAR</td>
-              <td>21.49%</td>
-              <td>20.80%</td>
-              <td>4.94%</td>
-              <td>6.33%</td>
-            </tr>
-            <tr>
-              <td>TR</td>
-              <td> 0.13</td>
-              <td>0.10</td>
-              <td>0.18</td>
-              <td>0.25</td>
-            </tr>
-            <tr>
-              <td>SR</td>
-              <td>0.09</td>
-              <td>0.06</td>
-              <td>0.30</td>
-              <td>0.5</td>
-            </tr>
-          </tbody>
-          <tfoot>
-          </tfoot>
-        </table>
-      </div>
-      <div class="table-wrapper">
-        <table class="alt">
-          <thead> <caption>Performance comparison of <em>INVEST</em> + GNN and <em>INVEST</em> investment portfolio over a one month holding period(𝛽 = 0.2)</caption>
-            <tr>
-              <th>Measure</th>
-              <th>IP.JGIND.G</th>
-              <th>IP.JGIND</th>
-              <th>IP.JCSEV.G</th>
-              <th>IP.JCSEV</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CR</td>
-              <td>0.79%</td>
-              <td>-0.48%</td>
-              <td>1.29%</td>
-              <td>1.48%</td>
-            </tr>
-            <tr>
-              <td>AAR</td>
-              <td>0.44%</td>
-              <td>-1.56%</td>
-              <td>1.07%</td>
-              <td>1.08%</td>
-            </tr>
-            <tr>
-              <td>TR</td>
-              <td> 0.02</td>
-              <td>-0.01</td>
-              <td>0.02</td>
-              <td>0.03</td>
-            </tr>
-            <tr>
-              <td>SR</td>
-              <td>0.09</td>
-              <td>-0.18</td>
-              <td>0.34</td>
-              <td>0.40</td>
-            </tr>
-          </tbody>
-          <tfoot>
-          </tfoot>
-        </table>
-      </div>
-      For Beta = 0.2 for both holding periods, the same results were obtained given that an identical set of shares were selected.	 	 	 						
-      However, when 𝛽 = 1 for a one-year holding period , the results demonstrate no performance improvement for Consumer Services in comparison to the base system results. We note that for the General Industrials sector, the hybrid system outperforms the baseline results measured across all metrics. 					
-      We posit that the results are a consequence of the specified prediction window. The GNN model outputs predicted values for the next 10 days, while the investment portfolio holding period is one year.		 							
-      When 𝛽 = 1 for the one-month holding period, we see an improvement in performance . The results demonstrate a drastic improvement relative to the one-year holding period for General Industrials. 
-      <br>
-      We conclude that a GNN, or more broadly, Machine Learning model integration could be valuable for short-term holding periods, such that the period is temporally consistent with the prediction horizon of the model. 
-      <br>
-      <br>
-
-      <h3>Noise Simulation</h3>
-      <div class="box alt">
-        <div class="row gtr-uniform">
-          <div class="col-12"><span class="image fit"><img src="images/noise.png" alt="" /></span></div>
+          <h3>Noise Simulation</h3>
+          <div class="box alt">
+            <div class="row gtr-uniform">
+              <div class="col-12">
+                <span class="image fit"
+                  ><img src="images/noise.png" alt=""
+                /></span>
+              </div>
+            </div>
+          </div>
+          <p>
+            For the addition of noise, a fractional sample of the dataset is
+            randomly adjusted positively or negatively by the standard deviation
+            of the variable of interest. This was run 10 times and the mean
+            metric values are reported.
+          </p>
+          <p>
+            The results demonstrate that the INVEST system cannot entirely
+            withstand noise given that different results are produced in
+            comparison to the baseline. Therefore, we conclude that the system
+            is not entirely stable and robust.
+          </p>
+          <hr />
+          <h3>Future Work</h3>
+          <p>
+            This research provides a solid foundation for further investigation
+            and extension of the <em>INVEST</em> system and other Semantic
+            BN-based IDSSs for share evaluation. Our results present
+            opportunities for further investigation.
+          </p>
         </div>
-      </div>
-      <p>
-        For the addition of noise, a fractional sample of the dataset is randomly adjusted positively or negatively by the standard deviation of the variable of interest. This was run 10 times and the mean metric values are reported.
-        The results demonstrate that the INVEST system cannot entirely withstand noise given that different results are produced in comparison to the baseline. 
-        <br>
-        Therefore, we conclude that the system is not entirely stable and robust. 
-      </p>
-      <hr>
-      <h3>Future Work</h3>
-      <p>
-        This research provides a solid foundation for further investigation and extension of the <em>INVEST</em> system and other Semantic BN-based IDSSs for share evaluation. 
-        Our results present opportunities for further investigation. 
-      </p>
-        </div>
-        
       </section>
     </div>
 
